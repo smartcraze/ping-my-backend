@@ -19,7 +19,7 @@ app.use(passport.session())
 app.use('/urls', urlsRouter);
 app.use('/pinglogs', pingLogsRouter);
 
-schedulePings()
+
 
 app.get('/', (req, res) => {
   res.send(`<a href="/auth/google">Login with Google</a>`)
@@ -57,4 +57,5 @@ app.get('/logout', (req, res, next) => {
 
 app.listen(3000, () => {
   console.log('🚀 Server running at http://localhost:3000')
+  schedulePings()
 })

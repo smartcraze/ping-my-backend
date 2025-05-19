@@ -3,7 +3,9 @@ import IORedis from 'ioredis'
 import axios from 'axios'
 import prisma from '../db/dbconnect'
 
-const connection = new IORedis(process.env.REDIS_URL || 'redis://localhost:6379')
+const connection = new IORedis(process.env.REDIS_URL || 'redis://localhost:6379', {
+  maxRetriesPerRequest: null
+})
 
 
 export const pingQueue = new Queue('pingQueue', { connection })
