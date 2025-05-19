@@ -1,7 +1,7 @@
 import passport from 'passport'
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
 import dotenv from 'dotenv'
-import prisma from '../../db/dbconnect'
+import prisma from '../db/dbconnect'
 
 
 interface UserWithGoogle {

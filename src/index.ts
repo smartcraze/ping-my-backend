@@ -1,6 +1,6 @@
 import express from 'express'
 import session from 'express-session'
-import passport from './src/auth/auth'
+import passport from './auth/auth'
 
 const app = express()
 
