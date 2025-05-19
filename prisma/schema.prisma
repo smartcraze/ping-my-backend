@@ -11,8 +11,8 @@ datasource db {
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
-  urls      URL[]
   createdAt DateTime @default(now())
+  urls      URL[]
 }
 
 model URL {
