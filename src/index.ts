@@ -1,6 +1,8 @@
 import express from 'express'
 import session from 'express-session'
 import passport from './auth/auth'
+import urlsRouter from './routes/urls'
+import pingLogsRouter from './routes/pinglogs'
 
 const app = express()
 
@@ -12,6 +14,9 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use('/urls', urlsRouter);
+app.use('/pinglogs', pingLogsRouter);
 
 
 app.get('/', (req, res) => {
