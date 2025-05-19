@@ -19,7 +19,6 @@ app.use(passport.session())
 app.use('/urls', urlsRouter);
 app.use('/pinglogs', pingLogsRouter);
 
-// Start the ping scheduler
 schedulePings()
 
 app.get('/', (req, res) => {
