@@ -3,6 +3,7 @@ import session from 'express-session'
 import passport from './auth/auth'
 import urlsRouter from './routes/urls'
 import pingLogsRouter from './routes/pinglogs'
+import { schedulePings } from './worker/pingScheduler'
 
 const app = express()
 
@@ -18,6 +19,8 @@ app.use(passport.session())
 app.use('/urls', urlsRouter);
 app.use('/pinglogs', pingLogsRouter);
 
+// Start the ping scheduler
+schedulePings()
 
 app.get('/', (req, res) => {
   res.send(`<a href="/auth/google">Login with Google</a>`)
